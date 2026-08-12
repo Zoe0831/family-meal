@@ -1,0 +1,136 @@
+﻿* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; padding: 0; height: 100%; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f6fa; color: #2c3e50; -webkit-font-smoothing: antialiased; }
+.loading { display: flex; align-items: center; justify-content: center; height: 100vh; color: #969799; font-size: 16px; }
+
+.app-container { min-height: 100vh; padding-bottom: 60px; padding-top: 46px; }
+
+/* 顶部标题 */
+.header { position: fixed; top: 0; left: 0; right: 0; height: 46px; background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 600; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.header .back-btn { position: absolute; left: 12px; color: #fff; font-size: 20px; padding: 8px; }
+.header .share-btn { position: absolute; right: 12px; color: #fff; font-size: 14px; padding: 6px 10px; background: rgba(255,255,255,0.2); border-radius: 14px; }
+
+/* 餐次切换 */
+.meal-tabs { display: flex; background: #fff; padding: 8px 12px; gap: 8px; border-bottom: 1px solid #ebedf0; }
+.meal-tabs .tab { flex: 1; text-align: center; padding: 10px; border-radius: 8px; font-size: 14px; color: #646566; transition: all 0.2s; }
+.meal-tabs .tab.active { background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%); color: #fff; font-weight: 600; }
+
+/* 日期选择 */
+.date-picker { background: #fff; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ebedf0; }
+.date-picker .date-label { font-size: 14px; color: #323233; }
+.date-picker .date-info { font-size: 12px; color: #969799; margin-top: 2px; }
+.date-picker .meal-time { font-size: 12px; color: #969799; background: #f7f8fa; padding: 4px 10px; border-radius: 12px; }
+
+/* 当前状态卡片 */
+.status-card { margin: 12px; padding: 16px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.status-card .title { font-size: 16px; font-weight: 600; color: #323233; margin-bottom: 8px; }
+.status-card .desc { font-size: 13px; color: #646566; line-height: 1.6; }
+.status-card .my-pick { display: flex; align-items: center; padding: 12px; background: linear-gradient(135deg, #fff5e6 0%, #ffe0b2 100%); border-radius: 8px; margin-top: 10px; }
+.status-card .my-pick .emoji { font-size: 32px; margin-right: 12px; }
+.status-card .my-pick .name { font-size: 16px; font-weight: 600; color: #d35400; }
+.status-card .voted-info { font-size: 12px; color: #969799; margin-top: 6px; }
+
+.big-btn { display: block; width: calc(100% - 24px); margin: 16px 12px; padding: 14px; background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%); color: #fff; text-align: center; border-radius: 24px; font-size: 16px; font-weight: 600; border: none; cursor: pointer; }
+.big-btn:active { opacity: 0.85; }
+.big-btn.outline { background: #fff; color: #ff6b6b; border: 1.5px solid #ff6b6b; }
+.big-btn.gray { background: #f7f8fa; color: #323233; border: 1px solid #ebedf0; }
+
+/* 菜品列表 */
+.recipe-list { padding: 0 12px 12px; }
+.recipe-item { display: flex; align-items: center; background: #fff; padding: 12px; margin-bottom: 8px; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.recipe-item .emoji { font-size: 36px; margin-right: 12px; }
+.recipe-item .info { flex: 1; min-width: 0; }
+.recipe-item .name { font-size: 15px; font-weight: 600; color: #323233; margin-bottom: 4px; }
+.recipe-item .meta { font-size: 12px; color: #969799; }
+.recipe-item .meta .tag { display: inline-block; background: #f7f8fa; padding: 1px 6px; border-radius: 4px; margin-right: 4px; color: #646566; }
+.recipe-item .vote-count { background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%); color: #fff; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+
+/* 分类筛选 */
+.filter-bar { display: flex; gap: 8px; padding: 8px 12px; background: #fff; overflow-x: auto; border-bottom: 1px solid #ebedf0; }
+.filter-bar::-webkit-scrollbar { display: none; }
+.filter-chip { padding: 6px 14px; background: #f7f8fa; border-radius: 14px; font-size: 13px; color: #646566; white-space: nowrap; }
+.filter-chip.active { background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%); color: #fff; }
+
+/* 搜索框 */
+.search-box { padding: 8px 12px; background: #fff; }
+.search-box input { width: 100%; padding: 10px 14px; background: #f7f8fa; border: none; border-radius: 8px; font-size: 14px; outline: none; }
+
+/* 揭晓页 */
+.result-banner { margin: 12px; padding: 20px 16px; background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%); border-radius: 12px; color: #fff; text-align: center; }
+.result-banner .winner-emoji { font-size: 48px; margin-bottom: 8px; }
+.result-banner .winner-name { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+.result-banner .winner-meta { font-size: 13px; opacity: 0.9; }
+
+.result-list { padding: 0 12px; }
+.result-item { display: flex; align-items: center; padding: 12px; background: #fff; border-radius: 10px; margin-bottom: 8px; }
+.result-item .rank { width: 28px; height: 28px; border-radius: 50%; background: #f7f8fa; color: #646566; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin-right: 12px; }
+.result-item .rank.gold { background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%); color: #fff; }
+.result-item .rank.silver { background: linear-gradient(135deg, #c0c4cc 0%, #909399 100%); color: #fff; }
+.result-item .rank.bronze { background: linear-gradient(135deg, #cd7f32 0%, #b8732d 100%); color: #fff; }
+.result-item .info { flex: 1; }
+.result-item .name { font-size: 15px; font-weight: 600; }
+.result-item .voters { font-size: 12px; color: #969799; margin-top: 4px; }
+.result-item .voters .voter { display: inline-block; background: #f7f8fa; padding: 2px 6px; border-radius: 4px; margin-right: 4px; }
+.result-item .count { font-size: 18px; font-weight: 600; color: #ff6b6b; }
+
+/* 角色选择 */
+.role-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 16px; }
+.role-item { aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fff; border-radius: 12px; cursor: pointer; transition: all 0.2s; }
+.role-item:active { transform: scale(0.96); }
+.role-item .avatar { font-size: 36px; margin-bottom: 6px; }
+.role-item .name { font-size: 14px; color: #323233; }
+
+.empty-state { padding: 60px 20px; text-align: center; color: #969799; }
+.empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+
+/* 详情页 */
+.detail-page { padding: 12px; padding-bottom: 80px; }
+.detail-header { background: #fff; padding: 20px 16px; border-radius: 12px; text-align: center; margin-bottom: 12px; }
+.detail-header .emoji { font-size: 64px; margin-bottom: 8px; }
+.detail-header .name { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+.detail-header .meta { font-size: 13px; color: #646566; }
+.detail-header .meta span { margin: 0 6px; }
+
+.section { background: #fff; padding: 16px; border-radius: 12px; margin-bottom: 12px; }
+.section-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #323233; display: flex; align-items: center; }
+.section-title::before { content: ""; width: 4px; height: 16px; background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%); border-radius: 2px; margin-right: 8px; }
+.ingredient-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #ebedf0; font-size: 14px; }
+.ingredient-item:last-child { border-bottom: none; }
+.ingredient-item .name { color: #323233; }
+.ingredient-item .amount { color: #969799; }
+
+.step-item { display: flex; margin-bottom: 12px; }
+.step-item .num { width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; margin-right: 12px; margin-top: 2px; }
+.step-item .text { flex: 1; font-size: 14px; line-height: 1.6; color: #323233; }
+
+.tips-box { background: #fff5e6; border-left: 3px solid #ffa500; padding: 10px 12px; border-radius: 6px; font-size: 13px; color: #d35400; margin-bottom: 12px; }
+
+.tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.tag-list .tag { background: #f7f8fa; padding: 4px 10px; border-radius: 10px; font-size: 12px; color: #646566; }
+
+.bottom-action { position: fixed; left: 0; right: 0; bottom: 0; padding: 12px; background: #fff; border-top: 1px solid #ebedf0; z-index: 50; }
+.bottom-action button { width: 100%; padding: 14px; border-radius: 24px; border: none; background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%); color: #fff; font-size: 16px; font-weight: 600; }
+.bottom-action button:disabled { background: #c8c9cc; }
+
+/* 自定义菜谱表单 */
+.form-page { padding: 12px; }
+.form-card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+.form-card label { display: block; font-size: 13px; color: #646566; margin-bottom: 6px; }
+.form-card input, .form-card textarea, .form-card select { width: 100%; padding: 10px; border: 1px solid #ebedf0; border-radius: 8px; font-size: 14px; outline: none; margin-bottom: 12px; }
+.form-card textarea { min-height: 80px; resize: vertical; }
+.form-card .row { display: flex; gap: 8px; }
+.form-card .row > div { flex: 1; }
+
+/* 成员管理 */
+.member-list { padding: 0 12px; }
+.member-item { display: flex; align-items: center; padding: 12px; background: #fff; margin-bottom: 8px; border-radius: 10px; }
+.member-item .avatar { font-size: 28px; margin-right: 12px; }
+.member-item .name { flex: 1; font-size: 15px; }
+.member-item .actions { display: flex; gap: 6px; }
+.member-item .actions button { padding: 4px 10px; border: 1px solid #ebedf0; background: #fff; border-radius: 12px; font-size: 12px; color: #646566; }
+.member-item .actions button.danger { color: #ee0a24; border-color: #ee0a24; }
+
+/* 分享弹窗 */
+.share-modal { padding: 20px; text-align: center; }
+.share-modal .title { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+.share-modal .link-box { background: #f7f8fa; padding: 12px; border-radius: 8px; font-size: 12px; color: #323233; word-break: break-all; margin-bottom: 12px; text-align: left; }
+.share-modal .hint { font-size: 13px; color: #969799; line-height: 1.6; }
