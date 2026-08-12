@@ -1,18 +1,17 @@
 {
   "name": "family-meal-vote",
-  "version": "1.0.0",
-  "description": "家庭明日菜单投票工具",
+  "version": "1.1.0",
+  "description": "家庭明日菜单投票工具 - 在微信里分享，全家一起选明天吃啥",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "express": "^4.19.2",
-    "cors": "^2.8.5",
-    "better-sqlite3": "^11.3.0"
+    "cors": "^2.8.5"
   }
 }
