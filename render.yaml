@@ -1,14 +1,9 @@
-﻿services:
+services:
   - type: web
     name: family-meal-vote
     runtime: node
     plan: free
     buildCommand: npm install
-    startCommand: node --experimental-sqlite server.js
+    startCommand: node server.js
     healthCheckPath: /api/health
     autoDeploy: true
-    envVars:
-      - key: NODE_VERSION
-        value: 20.11.1
-      - key: PORT
-        value: 10000
