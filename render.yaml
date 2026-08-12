@@ -4,7 +4,7 @@
     runtime: node
     plan: free
     buildCommand: npm install
-    startCommand: node server.js
+    startCommand: node --experimental-sqlite server.js
     healthCheckPath: /api/health
     autoDeploy: true
     envVars:
