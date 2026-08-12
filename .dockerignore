@@ -1,0 +1,11 @@
+﻿node_modules
+*.log
+*.db
+*.db-shm
+*.db-wal
+.DS_Store
+.git
+.gitignore
+*.md
+scripts/
+!public/scripts/

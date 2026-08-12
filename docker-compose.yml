@@ -1,0 +1,18 @@
+﻿version: "3.8"
+
+services:
+  family-meal:
+    build: .
+    container_name: family-meal-vote
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./data/db:/app/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

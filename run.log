@@ -1,0 +1,7 @@
+[init] 导入 198 道预置菜谱
+(node:36924) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+🍱  家庭明日菜单投票 已启动
+👉  访问 http://localhost:3000
+
